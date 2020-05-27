@@ -4,9 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/index.js\"",
+    "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon build/src/index.js\"",
     "test": "jest --verbose",
-    "test-watch": "jest --verbose --watchAll"
+    "test-watch": "jest --verbose --watchAll",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +24,7 @@
     "jest": "^26.0.1",
     "nodemon": "^2.0.4",
     "ts-jest": "^26.0.0",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.3",
+    "gts": "^2.0.2"
   }
 }
